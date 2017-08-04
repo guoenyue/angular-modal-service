@@ -3,46 +3,46 @@ var app = angular.module('sampleapp', ['angularModalService', 'ngAnimate']);
 
 app.controller('SampleController', ['$scope', 'ModalService', function($scope, ModalService) {
 
-  $scope.yesNoResult = null;
-  $scope.complexResult = null;
-  $scope.customResult = null;
+//   $scope.yesNoResult = null;
+//   $scope.complexResult = null;
+//   $scope.customResult = null;
 
-  $scope.showYesNo = function() {
+//   $scope.showYesNo = function() {
 
-    ModalService.showModal({
-      templateUrl: "yesno/yesno.html",
-      controller: "YesNoController",
-      preClose: (modal) => { modal.element.modal('hide'); }
-    }).then(function(modal) {
-      modal.element.modal();
-      modal.close.then(function(result) {
-        $scope.yesNoResult = result ? "You said Yes" : "You didn't say Yes";
-      });
-    });
+//     ModalService.showModal({
+//       templateUrl: "yesno/yesno.html",
+//       controller: "YesNoController",
+//       preClose: (modal) => { modal.element.modal('hide'); }
+//     }).then(function(modal) {
+//       modal.element.modal();
+//       modal.close.then(function(result) {
+//         $scope.yesNoResult = result ? "You said Yes" : "You didn't say Yes";
+//       });
+//     });
 
-  };
+//   };
 
-  $scope.showComplex = function() {
+//   $scope.showComplex = function() {
 
-    ModalService.showModal({
-      templateUrl: "complex/complex.html",
-      controller: "ComplexController",
-      preClose: (modal) => { modal.element.modal('hide'); },
-      inputs: {
-        title: "A More Complex Example"
-      }
-    }).then(function(modal) {
-      modal.element.modal();
-      modal.close.then(function(result) {
-        if (!result) {
-          $scope.complexResult = "Modal forcibly closed..."
-        } else {
-          $scope.complexResult  = "Name: " + result.name + ", age: " + result.age;
-        }
-      });
-    });
+//     ModalService.showModal({
+//       templateUrl: "complex/complex.html",
+//       controller: "ComplexController",
+//       preClose: (modal) => { modal.element.modal('hide'); },
+//       inputs: {
+//         title: "A More Complex Example"
+//       }
+//     }).then(function(modal) {
+//       modal.element.modal();
+//       modal.close.then(function(result) {
+//         if (!result) {
+//           $scope.complexResult = "Modal forcibly closed..."
+//         } else {
+//           $scope.complexResult  = "Name: " + result.name + ", age: " + result.age;
+//         }
+//       });
+//     });
 
-  };
+//   };
 
   $scope.showCustom = function() {
 
@@ -58,10 +58,10 @@ app.controller('SampleController', ['$scope', 'ModalService', function($scope, M
 
   };
 
-  $scope.keyPress = function(value) {
-    if (value.keyCode == 42) {
-      ModalService.closeModals(null, 500);
-    }
-  };
+//   $scope.keyPress = function(value) {
+//     if (value.keyCode == 42) {
+//       ModalService.closeModals(null, 500);
+//     }
+//   };
 
 }]);
